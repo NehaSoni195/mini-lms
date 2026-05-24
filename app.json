@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "mini-lms",
+    "slug": "mini-lms",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "com.neha_soni.minilms"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-image"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "4c76b8a6-ac6e-4f91-a260-285302a7ab9b"
+      }
+    }
+  }
+}
