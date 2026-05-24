@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Course Viewer</title>
+
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial;
+        margin: 0;
+        background: #f4f6f8;
+        color: #111;
+      }
+
+      /* HERO SECTION (NO STATUS BAR LOOK) */
+      .hero {
+        background: linear-gradient(135deg, #111, #2a2a2a);
+        padding: 28px 20px;
+        color: #fff;
+        border-bottom-left-radius: 28px;
+        border-bottom-right-radius: 28px;
+      }
+
+      .title {
+        font-size: 22px;
+        font-weight: 800;
+        line-height: 28px;
+      }
+
+      .sub {
+        margin-top: 8px;
+        font-size: 14px;
+        opacity: 0.85;
+      }
+
+      .badge {
+        display: inline-block;
+        margin-top: 12px;
+        padding: 5px 12px;
+        background: #fff;
+        color: #111;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      /* MAIN CONTAINER */
+      .container {
+        padding: 16px;
+      }
+
+      .card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 18px;
+        margin-top: -18px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      }
+
+      /* PROGRESS */
+      .progressBox {
+        margin-top: 10px;
+      }
+
+      .progressText {
+        font-size: 12px;
+        color: #666;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .bar {
+        height: 10px;
+        background: #eee;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-top: 6px;
+      }
+
+      .fill {
+        width: 55%;
+        height: 100%;
+        background: #111;
+      }
+
+      /* SECTIONS */
+      .section {
+        margin-top: 18px;
+        padding: 14px;
+        background: #fafafa;
+        border-radius: 14px;
+        border: 1px solid #eee;
+      }
+
+      .section h3 {
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+
+      .text {
+        font-size: 14px;
+        color: #555;
+        line-height: 22px;
+      }
+
+      ul {
+        padding-left: 18px;
+        margin: 0;
+      }
+
+      li {
+        margin-bottom: 8px;
+        font-size: 14px;
+        color: #444;
+      }
+
+      /* COURSE GRID */
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 12px;
+      }
+
+      .miniCard {
+        background: #fff;
+        border-radius: 14px;
+        padding: 12px;
+        border: 1px solid #eee;
+      }
+
+      .miniTitle {
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .miniDesc {
+        font-size: 12px;
+        color: #666;
+        margin-top: 4px;
+      }
+    </style>
+
+    <script>
+      function updateContent(data) {
+        document.getElementById("title").innerText = data.title || "Course";
+        document.getElementById("instructor").innerText =
+          data.instructor || "Instructor";
+
+        document.getElementById("desc").innerText =
+          data.description || "No description available";
+
+        document.getElementById("courseId").innerText =
+          "Course ID: " + (data.courseId || "N/A");
+      }
+    </script>
+  </head>
+
+  <body>
+
+    <!-- HERO (NO STATUS BAR FEEL) -->
+    <div class="hero">
+      <div class="title" id="title">Loading...</div>
+      <div class="sub" id="instructor"></div>
+      <div class="badge">🔥 Premium LMS Course</div>
+    </div>
+
+    <div class="container">
+
+      <div class="card">
+
+        <!-- PROGRESS -->
+        <div class="progressBox">
+          <div class="progressText">
+            <span id="courseId"></span>
+            <span>Progress: 55%</span>
+          </div>
+
+          <div class="bar">
+            <div class="fill"></div>
+          </div>
+        </div>
+
+        <!-- DESCRIPTION -->
+        <div class="section">
+          <h3>📘 About This Course</h3>
+          <div class="text" id="desc"></div>
+        </div>
+
+        <!-- WHAT YOU WILL LEARN -->
+        <div class="section">
+          <h3>🎯 What You Will Learn</h3>
+          <ul>
+            <li>Build real-world React Native apps</li>
+            <li>Master navigation & routing</li>
+            <li>Authentication system design</li>
+            <li>API integration & state management</li>
+          </ul>
+        </div>
+
+        <!-- COURSE MODULES (NEW IMPROVEMENT) -->
+        <div class="section">
+          <h3>📚 Course Modules</h3>
+
+          <div class="grid">
+            <div class="miniCard">
+              <div class="miniTitle">Module 1</div>
+              <div class="miniDesc">Introduction</div>
+            </div>
+
+            <div class="miniCard">
+              <div class="miniTitle">Module 2</div>
+              <div class="miniDesc">Setup & Tools</div>
+            </div>
+
+            <div class="miniCard">
+              <div class="miniTitle">Module 3</div>
+              <div class="miniDesc">Core Concepts</div>
+            </div>
+
+            <div class="miniCard">
+              <div class="miniTitle">Module 4</div>
+              <div class="miniDesc">Final Project</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- EXTRA CONTENT -->
+        <div class="section">
+          <h3>⭐ Why This Course?</h3>
+          <ul>
+            <li>Industry-level project structure</li>
+            <li>Beginner to advanced roadmap</li>
+            <li>Hands-on coding experience</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </body>
+</html>

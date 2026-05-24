@@ -8,7 +8,7 @@ import {
   ScrollView,
 } from "react-native";
 
-import { useLocalSearchParams } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 
 import {
@@ -32,6 +32,7 @@ export default function CourseDetailsScreen() {
   const { user } = useAuth();
 
   const userId = user?._id;
+  const router = useRouter();
 
   useEffect(() => {
     loadData();
@@ -109,6 +110,21 @@ export default function CourseDetailsScreen() {
           <Text style={styles.enrollText}>
             {enrolled ? "Enrolled" : "Enroll Now"}
           </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.enrollBtn}
+          onPress={() =>
+            router.push({
+              pathname: "/course/webview",
+              params: {
+                course: JSON.stringify(course),
+                instructor: JSON.stringify(instructor),
+              },
+            })
+          }
+        >
+          <Text style={styles.enrollText}>Start Learning</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
